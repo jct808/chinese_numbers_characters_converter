@@ -14,7 +14,7 @@ gem 'chinese_numbers_characters_converter'
 
 And then execute:
 
-    $ bundle
+    $ bundle install 
 
 Or install it yourself as:
 
@@ -22,7 +22,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+ChineseNumbersCharactersConverter::Converter.run(Integer)
+
+It returns, example: 參仟貳佰肆拾貳萬壹仟肆佰肆拾壹元整
 
 ## Development
 
@@ -32,7 +34,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/chinese_numbers_characters_converter. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jct808/chinese_numbers_characters_converter. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
