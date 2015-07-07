@@ -14,7 +14,7 @@ gem 'chinese_numbers_characters_converter'
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
@@ -22,7 +22,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+ChineseNumbersCharactersConverter::Converter.run(2131231)
+
+It returns, example: 貳佰壹拾參萬壹仟貳佰參拾壹元整
 
 ## Development
 
