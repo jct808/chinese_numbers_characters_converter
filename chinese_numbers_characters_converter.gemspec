@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{To Convert a Integer to Chinese Number Characters.}
   spec.description   = %q{In Taiwan, Bank or other finance facility are using Chinese numerals character substitute for Arabic numerals, because of security and correctly reason.}
-  spec.homepage      = "https://rubygems.org/gems/example"
+  spec.homepage      = "https://rubygems.org"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or

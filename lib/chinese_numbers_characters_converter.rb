@@ -1,7 +1,6 @@
 require "chinese_numbers_characters_converter/version"
 
 module ChineseNumbersCharactersConverter
-  
   class Converter
   	
   	def self.run(str)
@@ -25,5 +24,4 @@ module ChineseNumbersCharactersConverter
   	end
   
   end
-
 end
