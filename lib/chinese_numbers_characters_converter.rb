@@ -1,27 +1,28 @@
+# encoding: utf-8
+
 require "chinese_numbers_characters_converter/version"
+
+NUMBERS = ["零", "壹", "貳", "參", "肆", "伍", "陸", "柒", "捌", "玖"]
+UNITS = ["", "拾", "佰", "仟", "萬", "拾", "佰", "仟", "億", "拾", "佰", "仟"]
 
 module ChineseNumbersCharactersConverter
   class Converter
-  	
-  	def self.run(str)
-  		number = ["零", "壹", "貳", "參", "肆", "伍", "陸", "柒", "捌", "玖"]
-			dig = ["", "拾", "佰", "仟", "萬", "拾", "佰", "仟", "億", "拾", "佰", "仟"]
-  		@string_a = Array.new
-  		@num_o = str
-  		num_s = str.to_s
-  		num_s = num_s.reverse!
-  		for i in 0..(num_s.to_s).length-1
-      	if ((num_s[i]).to_i != 0)
-        	@string_a.push(number[(num_s[i]).to_i] + dig[i])
-      	end
-    	end
-    	if @string_a.any?
-      	@string_a = @string_a.reverse!()
-      	@string_a.push("元整")
-    	end
-    	@num_o = num_s.reverse!
-    	return @string_a.join
-  	end
-  
+    def self.run(input_num)
+      return unless input_num
+      result = []
+
+      # 12345 => 54321
+      input_num = input_num.to_s.reverse!
+
+      # convert to kanji
+      input_num.split('').each_with_index do |n, i|
+        result.push NUMBERS[n.to_i] + UNITS[i]
+      end
+
+      # 54321 kanji => 12345 kanji
+      result.reverse!
+      result.push("元整")
+      return result.join
+    end
   end
 end
