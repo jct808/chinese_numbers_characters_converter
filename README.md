@@ -1,15 +1,14 @@
-# ChineseNumbersCharactersConverter
+# ChineseNumber
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/chinese_numbers_characters_converter`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Convert integers to Traditional Chinese financial numerals, such as the
+uppercase characters commonly used on Taiwan banking and accounting documents.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'chinese_numbers_characters_converter'
+gem 'chinese_number'
 ```
 
 And then execute:
@@ -18,13 +17,60 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install chinese_numbers_characters_converter
+    $ gem install chinese_number
 
 ## Usage
 
-ChineseNumbersCharactersConverter::Converter.run(2131231)
+```ruby
+require 'chinese_number'
 
-It returns, example: 貳佰壹拾參萬壹仟貳佰參拾壹元整
+ChineseNumber.convert(2_131_231)
+# => "貳佰壹拾參萬壹仟貳佰參拾壹元整"
+
+ChineseNumber.convert('0010001')
+# => "壹萬零壹元整"
+```
+
+`nil` returns `nil`. Non-integer input raises `ArgumentError`.
+
+## Ruby on Rails
+
+Add the gem to your Rails application's `Gemfile`:
+
+```ruby
+gem 'chinese_number'
+```
+
+Then install it:
+
+```bash
+bundle install
+```
+
+Rails loads gems from the bundle automatically, so you can call it from models,
+controllers, helpers, jobs, or views:
+
+```ruby
+ChineseNumber.convert(10_001)
+# => "壹萬零壹元整"
+```
+
+Example controller usage:
+
+```ruby
+class InvoicesController < ApplicationController
+  def show
+    @invoice = Invoice.find(params[:id])
+    @total_in_chinese = ChineseNumber.convert(@invoice.total_cents / 100)
+  end
+end
+```
+
+Example view usage:
+
+```erb
+<%= ChineseNumber.convert(@invoice.total_amount) %>
+```
 
 ## Development
 
@@ -34,10 +80,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/chinese_numbers_characters_converter. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/jct808/chinese_number. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
