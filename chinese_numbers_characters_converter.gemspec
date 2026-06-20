@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'chinese_number/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "chinese_number"
+  spec.name          = "chinese_numbers_characters_converter"
   spec.version       = ChineseNumber::VERSION
   spec.authors       = ["Chris Tai"]
   spec.email         = ["jct808@gmail.com"]
